@@ -1,22 +1,22 @@
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const person = {
+    name: "Atiqur Rahman",
+    age: 25,
+    gender: "male"
+  }
+  const style = {
+    backgroundColor: "yellow",
+    color: "black"
+  }
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit Done<code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1 style= {style} > My First Heading</h1>
+        <h2 style= {style}>Person Name: {person.name}</h2>
+        <h2 style= {style}>Person Gender: {person.gender} </h2>
+        <h2 style= {style}>Person Age: {person.age} </h2>
       </header>
     </div>
   );
