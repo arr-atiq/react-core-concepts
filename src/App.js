@@ -47,16 +47,58 @@ import './App.css';
 // }
 
 
+// function App() {
+//   const products = [
+//     {name: "Adobe PhotoShop", price: "$90.90"},
+//     {name: "Adobe Illustrator", price: "$50.50"}
+//   ]
+//   return (
+//     <div className="App">
+//       <header className="App-header">
+//         <Card product= {products[0]}></Card>
+//         <Card product= {products[1]}></Card>
+//       </header>
+//     </div>
+//   );
+// }
+
+// function Card (props){
+//   const style = {
+//     backgroundColor: 'gray',
+//     border: "2px solid cyan",
+//     borderRadius: "10px",
+//     width: "300px",
+//     height: "250px",
+//     margin: "10px",
+//     float: "left",
+//     boxShadow: "5px 10px 10px cyan"
+//   }
+//   const {name, price} = props.product;
+//   return(
+//     <div style = {style}>
+//       <h2>{name}</h2>
+//       <h3>{price}</h3>
+//       <button>Buy Now</button>
+//     </div>
+//   )
+// }
+
 function App() {
   const products = [
     {name: "Adobe PhotoShop", price: "$90.90"},
-    {name: "Adobe Illustrator", price: "$50.50"}
+    {name: "Adobe Illustrator", price: "$50.50"},
+    {name: "Adobe Premier Pro", price: "$90.90"},
+    {name: "Adobe PDF", price: "$50.50"}
   ]
   return (
     <div className="App">
       <header className="App-header">
-        <Card product= {products[0]}></Card>
-        <Card product= {products[1]}></Card>
+        {/* <Card product= {products[0]}></Card>
+        <Card product= {products[1]}></Card> */}
+
+        {
+          products.map(product => <Card product = {product}></Card>)
+        }
       </header>
     </div>
   );
