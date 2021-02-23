@@ -1,4 +1,5 @@
 import './App.css';
+import React, { useState } from "react";
 
 // function App() {
 //   const person = {
@@ -93,6 +94,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+      <Counter></Counter>
         {/* <Card product= {products[0]}></Card>
         <Card product= {products[1]}></Card> */}
 
@@ -103,6 +105,30 @@ function App() {
     </div>
   );
 }
+
+// using hooks for counter
+
+function Counter(){
+  const [count, setState] = useState(0);
+  const handleCount = () => {
+    const newCount = count +1;
+    setState(newCount);
+  }
+  const handleCountD = () => {
+    if(count >= 1){
+      const newCount = count -1;
+    setState(newCount);
+    }
+  }
+  return(
+    <div>
+      <h1>Counter: {count}</h1>
+      <button onClick={handleCount}>Increase</button>
+      <button onClick={handleCountD}>Decrease</button>
+    </div>
+  )
+}
+
 
 function Card (props){
   const style = {
