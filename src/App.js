@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 // function App() {
 //   const person = {
@@ -101,6 +101,7 @@ function App() {
         {
           products.map(product => <Card product = {product}></Card>)
         }
+        <DynamicUsers></DynamicUsers>
       </header>
     </div>
   );
@@ -147,6 +148,33 @@ function Card (props){
       <h2>{name}</h2>
       <h3>{price}</h3>
       <button>Buy Now</button>
+    </div>
+  )
+}
+
+// load data using useEffect
+
+function DynamicUsers(){
+  const [user, setUser] = useState([]);
+  useEffect(() => {
+    fetch('https://jsonplaceholder.typicode.com/users')
+    .then(res => res.json())
+    .then(data => setUser(data))
+  },[])
+  return(
+    <div>
+      <h1>Dynamic Users Information</h1>
+      <ul>
+        {
+          user.map(userInfo => 
+          <li>
+             Name: {userInfo.name}
+              <li>
+                Email: {userInfo.email}
+              </li>
+          </li>)
+        }
+      </ul>
     </div>
   )
 }
